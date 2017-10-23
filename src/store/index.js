@@ -24,22 +24,5 @@ export default new Vuex.Store({
       foto: null,
       perfil: ['INFORMATICO']
     }
-  },
-  getters: {
-    isAuthed (state) {
-      return state.isAuthed
-    },
-    token (state) {
-      return state.token
-    },
-    centro (state) {
-      return state.centro
-    },
-    curso (state) {
-      return state.curso
-    },
-    usuario (state) {
-      return state.usuario
-    }
   }
 })
