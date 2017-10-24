@@ -1,8 +1,8 @@
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Footer',
-  data () {
-    return {
-      centro: 'Welcome to Your Vue.js App'
-    }
-  }
+  computed: mapGetters({
+    datos: 'generalData'
+  })
 }

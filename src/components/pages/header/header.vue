@@ -125,7 +125,7 @@
                 <!-- The user image in the navbar-->
                 <img src="/static/adminlte/img/user2-160x160.jpg" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs">{{ usuario.nombre }}</span>
+                <span class="hidden-xs">{{ user.nombre }}</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
@@ -133,7 +133,7 @@
                   <img src="/static/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p>
-                    {{ usuario.nombre }} - {{ usuario.usuario }}
+                    {{ user.nombre }} - {{ user.usuario }}
                     <small>Perfiles Asignados al usuario</small>
                   </p>
                 </li>

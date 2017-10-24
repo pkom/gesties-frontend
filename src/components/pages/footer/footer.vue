@@ -3,11 +3,11 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      <a href="mailto:francisco.mora.sanchez@gmail.com">Contáctame</a>
+    <div class="pull-right">
+      <strong>Copyright &copy; 2017 <a href="mailto:francisco.mora.sanchez@gmail.com">Francisco Mora Sánchez</a></strong>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="/">Francisco Mora Sánchez</a>.</strong> Todos los derechos reservados.
+    <strong>{{ datos.centro.nombre }} {{ datos.curso.curso }} </strong>
   </footer>
 </div>
 </template>
