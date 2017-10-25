@@ -16,8 +16,6 @@ const _generalData = {
 }
 
 const _usuarioData = {
-  'authed': true,
-  'token': '12212122232323',
   'usuario': 'fmoras01',
   'nombre': 'Francisco Mora Sánchez',
   'id': '1233434R',

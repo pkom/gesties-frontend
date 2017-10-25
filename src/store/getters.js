@@ -1,2 +1,5 @@
-export const authed = state => state.authed
-export const token = state => state.token
+export default {
+  authenticated: state => state.authenticated,
+  token: state => state.token,
+  showLoader: state => state.showLoader
+}

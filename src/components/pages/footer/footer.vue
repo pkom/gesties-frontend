@@ -7,7 +7,7 @@
       <strong>Copyright &copy; 2017 <a href="mailto:francisco.mora.sanchez@gmail.com">Francisco Mora Sánchez</a></strong>
     </div>
     <!-- Default to the left -->
-    <strong>{{ datos.centro.nombre }} {{ datos.curso.curso }} </strong>
+    <strong> {{ generalData.centro.nombre }} </strong>
   </footer>
 </div>
 </template>

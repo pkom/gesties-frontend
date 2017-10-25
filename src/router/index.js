@@ -11,7 +11,7 @@ const router = new Router({
       path: '/',
       name: 'Home',
       component: Home,
-      meta: { auth: true, roles: ['RESPONSABLE', 'ADMINISTRATIVO', 'INFORMATICO', 'PROFESOR', 'TUTOR', 'JEFE'] }
+      meta: { auth: true }
     },
     {
       path: '/login',
@@ -22,14 +22,13 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const authRequired = to.matched.some((route) => route.meta.auth)
-  // const authed = store.state.user.isAuthorized
-  const authed = this.$getters.authed
-  if (authRequired && !authed) {
-    next('/login')
-  } else {
-    next()
-  }
+  next()
+  // const authRequired = to.matched.some((route) => route.meta.auth)
+  // if (authRequired) { // && !authed) {
+  //  next('/login')
+  // } else {
+  //  next()
+  // }
   // const role = store.state.user.role // get user's role
   // const role = 'INFORMATICO' // get user's role
   // get allowed roles from mathed routes. We use reduce() to only get the roles nested the deepest

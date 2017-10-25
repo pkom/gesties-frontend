@@ -40,9 +40,12 @@
       'footer-gesties': Footer,
       'breadcrumb-gesties': Breadcrumb
     },
-    computed: mapGetters({
-      datos: 'generalData'
-    }),
+    computed: mapGetters([
+      'generalData',
+      'authenticated',
+      'token',
+      'showLoader'
+    ]),
     created () {
       this.$store.dispatch('getGeneralData')
     }
