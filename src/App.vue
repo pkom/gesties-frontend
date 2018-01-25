@@ -1,24 +1,26 @@
 <template>
   <div id="app">
-    <header-gesties></header-gesties>
-    <sidebar-gesties></sidebar-gesties>
-    <div class="wrapper">
-      <div class="content-wrapper">
-        <breadcrumb-gesties></breadcrumb-gesties>
-        <section class="content container-fluid">
-          <router-view/>
-        </section>
-        <control-sidebar></control-sidebar>
-      </div>
-      <footer-gesties></footer-gesties>
-    </div>
-    <div class="overlay" v-show="showLoader">
+    <div class="overlay" v-if="showLoader">
       <div class="loading-spinner">
         <div class="dot dotOne"></div>
         <div class="dot dotTwo"></div>
         <div class="dot dotThree"></div>
       </div>
-    </div>
+    </div>  
+    <div v-else>
+      <header-gesties></header-gesties>
+      <sidebar-gesties></sidebar-gesties>
+      <div class="wrapper">
+        <div class="content-wrapper">
+          <breadcrumb-gesties></breadcrumb-gesties>
+          <section class="content container-fluid">
+            <router-view/>
+          </section>
+          <control-sidebar></control-sidebar>
+        </div>
+        <footer-gesties></footer-gesties>
+      </div>
+    </div>      
   </div>
 </template>
 
@@ -41,13 +43,14 @@
       'breadcrumb-gesties': Breadcrumb
     },
     computed: mapGetters([
-      'generalData',
+      'mainData',
+      'user',
       'authenticated',
       'token',
       'showLoader'
     ]),
     created () {
-      this.$store.dispatch('getGeneralData')
+      this.$store.dispatch('getMainData')
     }
   }
 </script>
