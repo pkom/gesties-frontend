@@ -3,27 +3,41 @@ import * as types from '../mutation-types'
 
 // initial state
 const state = {
-  generalData: {}
+  mainData: {},
+  authenticated: false,
+  showLoader: false,
+  token: null
 }
 
 // getters
 const getters = {
-  generalData: state => state.generalData
+  mainData: state => state.mainData,
+  authenticated: state => state.authenticated,
+  showLoader: state => state.showLoader,
+  token: state => state.token
 }
 
 // actions
 const actions = {
-  getGeneralData ({ commit }) {
-    api.getGeneralData(generalData => {
-      commit(types.RECEIVE_GENERAL_DATA, { generalData })
+  getMainData ({commit}) {
+    commit(types.SHOW_LOADING)
+    api.getMainData(mainData => {
+      commit(types.RECEIVE_MAIN_DATA, mainData)
+      commit(types.HIDE_LOADING)
     })
   }
 }
 
 // mutations
 const mutations = {
-  [types.RECEIVE_GENERAL_DATA] (state, { generalData }) {
-    state.generalData = generalData
+  [types.RECEIVE_MAIN_DATA] (state, payload) {
+    state.mainData = payload
+  },
+  [types.SHOW_LOADING] (state) {
+    state.showLoader = true
+  },
+  [types.HIDE_LOADING] (state) {
+    state.showLoader = false
   }
 }
 

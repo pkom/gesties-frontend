@@ -1,25 +1,18 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/home'
-import Login from '@/components/pages/login/login.vue'
+import VueRouter from 'vue-router'
+import VuexRouterSync from 'vuex-router-sync'
 
-Vue.use(Router)
+import './assets/sass/app.scss'
+import store from './store'
+import routes from './routes'
 
-const router = new Router({
+Vue.config.debug = process.env.NODE_ENV !== 'production'
+
+Vue.use(VueRouter)
+
+export const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home,
-      meta: { auth: true }
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    }
-  ]
+  routes
 })
 
 router.beforeEach((to, from, next) => {
@@ -52,4 +45,10 @@ router.beforeEach((to, from, next) => {
   // }
 })
 
-export default router
+VuexRouterSync.sync(store, router)
+
+Vue.router = router
+
+export default {
+  router
+}

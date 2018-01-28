@@ -2,7 +2,7 @@
  * Mocking client-server processing
  */
 
-const _generalData = {
+const _mainData = {
   centro: {
     nombre: 'I.E.S. Maestro Juan Calero',
     codigo: '06006701',
@@ -31,10 +31,10 @@ const _usuarioData = {
 }
 
 export default {
-  getGeneralData (cb) {
-    setTimeout(() => cb(_generalData), 1000)
+  getMainData (cb) {
+    setTimeout(() => cb(_mainData), 3000)
   },
   getUserData (cb) {
-    setTimeout(() => cb(_usuarioData), 1000)
+    setTimeout(() => cb(_usuarioData), 3000)
   }
 }
