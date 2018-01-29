@@ -11,7 +11,7 @@
               <select
                 class="form-control" 
                 v-model="cursoSeleccionado">
-                  <option v-for="curso in cursos" v-bind:value="curso.id">{{ curso.curso }}
+                  <option v-for="curso in mainData.cursos" v-bind:value="curso.id" :key="curso.id">{{ curso.curso }}
                   </option>
               </select>  
             </div>
@@ -55,5 +55,30 @@
   </div>
 </template>
 
-<script src="./login.js"></script>
-<style src="./login.css"></style>
+<script>
+  import { mapGetters } from 'vuex'
+
+  export default {
+    name: 'Login',
+    data () {
+      return {
+        user: { name: null, password: null },
+        cursoSeleccionado: 2
+      }
+    },
+    computed: {
+      isFormEmpty () {
+        return !(this.user.name && this.user.password)
+      },
+      ...mapGetters([
+        'mainData',
+        'error'
+      ])
+    },
+    methods: {
+      onLogin () {
+        this.$store.dispatch('loginUser', { user: this.user.name, password: this.user.password, curso: this.cursoSeleccionado })
+      }
+    }
+  }
+</script>

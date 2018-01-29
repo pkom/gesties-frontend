@@ -26,15 +26,25 @@ const _usuarioData = {
   usuario: 'fmoras01',
   nombre: 'Francisco Mora Sánchez',
   id: '1233434R',
-  foto: null,
+  foto: '/static/adminlte/img/user2-160x160.jpg',
   perfil: ['INFORMATICO']
 }
 
 export default {
   getMainData (cb) {
-    setTimeout(() => cb(_mainData), 3000)
+    setTimeout(() => cb(_mainData), 100)
   },
-  getUserData (cb) {
-    setTimeout(() => cb(_usuarioData), 3000)
+  loginUser (loginData, cb, errorCb) {
+    let okAuth = false
+    let response = {}
+    if (loginData.user === 'test' && loginData.password === 'test') {
+      okAuth = true
+      response = {data: _usuarioData, curso: loginData.curso}
+    } else {
+      response = {error: 'Nombre de usuario y/o contraseña incorrecta'}
+    }
+    setTimeout(() => {
+      okAuth ? cb(response) : errorCb(response)
+    }, 100)
   }
 }

@@ -184,5 +184,17 @@
   </div>
 </template>
 
-<script src ="./header.js"></script>
-<style src="./header.css"></style>
+<script>
+  import { mapGetters } from 'vuex'
+
+  export default {
+    name: 'Header',
+    computed: mapGetters({
+      user: 'userData',
+      authenticated: 'authenticated'
+    }),
+    created () {
+      // this.$store.dispatch('getUserData')
+    }
+  }
+</script>

@@ -7,6 +7,13 @@
         <breadcrumb-gesties></breadcrumb-gesties>
         <section class="content container-fluid">
           <router-view></router-view>
+            <div class="overlay" v-show="showLoader">
+              <div class="loading-spinner">
+              <div class="dot dotOne"></div>
+              <div class="dot dotTwo"></div>
+              <div class="dot dotThree"></div>
+            </div>
+          </div>
         </section>
         <control-sidebar></control-sidebar>
       </div>
@@ -18,6 +25,7 @@
 <script>
   import store from './store'
   import { router } from './bootstrap'
+  import * as types from './store/mutation-types'
   import { mapGetters } from 'vuex'
 
   import Header from '@/components/pages/header/header.vue'
@@ -39,13 +47,22 @@
     },
     computed: mapGetters([
       'mainData',
-      'userData',
+      // 'userData',
       'authenticated',
       'token',
       'showLoader'
     ]),
-    mounted () {
+    created () {
       this.$store.dispatch('getMainData')
+      this.$store.subscribe((mutation) => {
+        if (mutation.payload) {
+          switch (mutation.type) {
+            case types.SET_ERROR:
+              this.$toastr('error', mutation.payload)
+              break
+          }
+        }
+      })
     }
   }
 </script>

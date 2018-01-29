@@ -3,7 +3,13 @@ import * as types from '../mutation-types'
 
 // initial state
 const state = {
-  userData: {}
+  userData: {
+    usuario: null,
+    nombre: null,
+    id: null,
+    foto: null,
+    perfil: []
+  }
 }
 
 // getters
@@ -13,42 +19,35 @@ const getters = {
 
 // actions
 const actions = {
-  getUserData ({ commit }) {
-    api.getUserData(userData => {
-      commit(types.RECEIVE_USER_DATA, { userData })
-    })
-  },
-  loginUser ({ commit }) {
-    commit(types.LOGIN_REQUEST)
-    // axios
-    // axios.get(`${API_BASE}/products`).then(response => {
-    //   commit(ALL_PRODUCTS_SUCCESS, response.data)
-    // })
-    commit(types.LOGIN_SUCCESS)
+  loginUser ({ commit }, payload) {
+    commit(types.SHOW_LOADING)
+    api.loginUser(
+      payload,
+      (response) => {
+        commit(types.LOG_IN, response.data)
+        commit(types.HIDE_LOADING)
+      },
+      (response) => {
+        commit(types.SET_ERROR, response.error)
+        commit(types.HIDE_LOADING)
+      }
+    )
   },
   logoutUser ({ commit }) {
-    commit(types.LOGOUT_REQUEST)
-    commit(types.LOGIN_SUCCESS)
+    commit(types.SHOW_LOADING)
+    commit(types.LOG_OUT)
   }
 }
 
 // mutations
 const mutations = {
-  [types.RECEIVE_USER_DATA] (state, { userData }) {
-    state.userData = userData
-  },
-  [types.LOGIN_REQUEST] (state) {
-    state.showLoader = true
-  },
-  [types.LOGIN_SUCCESS] (state) {
+  [types.LOG_IN] (state, payload) {
+    state.userData = {...payload}
     state.showLoader = false
     state.authenticated = true
     state.token = '12221212'
   },
-  [types.LOGOUT_REQUEST] (state) {
-    state.showLoader = true
-  },
-  [types.LOGOUT_SUCCESS] (state) {
+  [types.LOG_OUT] (state) {
     state.showLoader = false
     state.authenticated = false
     state.token = null

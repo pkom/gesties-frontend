@@ -2,13 +2,9 @@ export const SHOW_LOADING = 'SHOW_LOADING'
 export const HIDE_LOADING = 'HIDE_LOADING'
 
 export const RECEIVE_MAIN_DATA = 'RECEIVE_MAIN_DATA'
-export const RECEIVE_USER_DATA = 'RECEIVE_USER_DATA'
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGIN_FAILURE = 'LOGIN_FAILURE'
-export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
-export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
 
-export const ERROR_MSG = 'ERROR_MSG'
-export const SUCCESS_MSG = 'SUCCESS_MSG'
+export const LOG_IN = 'LOG_IN'
+export const LOG_OUT = 'LOG_OUT'
+
+export const CLEAR_ERROR = 'CLEAR_ERROR'
+export const SET_ERROR = 'SET_ERROR'

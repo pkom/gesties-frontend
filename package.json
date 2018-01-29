@@ -11,7 +11,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "@deveodk/vue-toastr": "^1.0.4",
     "axios": "^0.17.0",
+    "toastr": "^2.1.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0",
