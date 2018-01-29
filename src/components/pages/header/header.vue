@@ -119,12 +119,7 @@
               </ul>
             </li>
             <!-- User Account Menu -->
-
-
-            <template  v-if="authenticated">
-
-
-            <li class="dropdown user user-menu">
+            <li v-if="authenticated" class="dropdown user user-menu">
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
@@ -140,8 +135,8 @@
                   <p>
                     {{ user.userName }} - {{ user.fullName }}
                     <small>Perfiles Asignados al usuario</small>
+                    <span v-for="(profile,i) in user.profile" :key="i" class="pull-left badge bg-green"> {{ profile }} </span>
                   </p>
-                  <span v-for="(profile,i) in user.profile" :key="i" class="pull-right badge bg-blue"> {{ profile }} </span>
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
@@ -154,10 +149,6 @@
                 </li>
               </ul>
             </li>
-
-
-            </template>
-
 
             <!-- Control Sidebar Toggle Button -->
             <li>

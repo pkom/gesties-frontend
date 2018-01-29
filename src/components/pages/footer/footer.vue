@@ -6,8 +6,7 @@
       <strong>Copyright &copy; 2018 <a href="mailto:francisco.mora.sanchez@gmail.com">Francisco Mora Sánchez</a></strong>
     </div>
     <!-- Default to the left -->
-    <!-- <div v-if="showLoader" class="overlay"><i class="fa fa-refresh fa-spin"></i></div> -->
-    <strong v-if="!showLoader"> {{ center.code }} - {{ center.name }} </strong> 
+    <strong> {{ center.code }} - {{ center.name }} </strong> 
   </footer>
 </template>
 

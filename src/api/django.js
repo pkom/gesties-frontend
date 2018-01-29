@@ -23,7 +23,7 @@ const _userData = {
   fullName: 'Francisco Mora Sánchez',
   id: '1233434R',
   photo: '/static/adminlte/img/user2-160x160.jpg',
-  profile: ['INFORMATICO']
+  profile: ['INFORMÁTICO']
 }
 
 export default {

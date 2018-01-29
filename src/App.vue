@@ -7,8 +7,8 @@
         <breadcrumb-gesties></breadcrumb-gesties>
         <section class="content container-fluid">
           <router-view></router-view>
-            <div class="overlay" v-show="showLoader">
-              <div class="loading-spinner">
+          <div class="overlay" v-show="showLoader">
+            <div class="loading-spinner">
               <div class="dot dotOne"></div>
               <div class="dot dotTwo"></div>
               <div class="dot dotThree"></div>
