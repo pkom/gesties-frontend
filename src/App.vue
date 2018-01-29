@@ -46,14 +46,14 @@
       'breadcrumb-gesties': Breadcrumb
     },
     computed: mapGetters([
-      'mainData',
+      'center',
       // 'userData',
       'authenticated',
       'token',
       'showLoader'
     ]),
     created () {
-      this.$store.dispatch('getMainData')
+      this.$store.dispatch('getCenterData')
       this.$store.subscribe((mutation) => {
         if (mutation.payload) {
           switch (mutation.type) {

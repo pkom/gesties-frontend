@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   // } else {
   //  next()
   // }
-  // const role = store.state.user.role // get user's role
+  // const role = store.state.user.profile // get user's role
   // const role = 'INFORMATICO' // get user's role
   // get allowed roles from mathed routes. We use reduce() to only get the roles nested the deepest
   // const allowedRoles = to.matched.reduce((acc, route) => {

@@ -5,8 +5,8 @@ import state from './state'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import general from './modules/general'
-import users from './modules/users'
+// import general from './modules/general'
+// import users from './modules/users'
 
 Vue.use(Vuex)
 
@@ -18,10 +18,10 @@ export default new Vuex.Store({
   mutations,
   getters,
 
-  modules: {
-    general,
-    users
-  },
+  // modules: {
+    // general,
+    // users
+  // },
     /**
    * If strict mode should be enabled.
    */

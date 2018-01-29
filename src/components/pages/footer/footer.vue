@@ -7,7 +7,7 @@
     </div>
     <!-- Default to the left -->
     <!-- <div v-if="showLoader" class="overlay"><i class="fa fa-refresh fa-spin"></i></div> -->
-    <strong v-if="!showLoader"> {{ mainData.centro.codigo }} - {{ mainData.centro.nombre }} </strong> 
+    <strong v-if="!showLoader"> {{ center.code }} - {{ center.name }} </strong> 
   </footer>
 </template>
 
@@ -18,7 +18,7 @@
     name: 'Footer',
     computed: {
       ...mapGetters([
-        'mainData',
+        'center',
         'showLoader'
       ])
     }

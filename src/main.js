@@ -6,7 +6,7 @@
  * Will initialize the application
  */
 import Vue from 'vue'
-import app from './app'
+import app from './App'
 
 require('./bootstrap')
 

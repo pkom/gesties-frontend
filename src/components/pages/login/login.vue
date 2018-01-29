@@ -10,8 +10,8 @@
             <div class="form-group has-feedback">
               <select
                 class="form-control" 
-                v-model="cursoSeleccionado">
-                  <option v-for="curso in mainData.cursos" v-bind:value="curso.id" :key="curso.id">{{ curso.curso }}
+                v-model="selectedCourse">
+                  <option v-for="course in courses" v-bind:value="course.id" :key="course.id">{{ course.course }}
                   </option>
               </select>  
             </div>
@@ -63,7 +63,7 @@
     data () {
       return {
         user: { name: null, password: null },
-        cursoSeleccionado: 2
+        selectedCourse: 2
       }
     },
     computed: {
@@ -71,13 +71,13 @@
         return !(this.user.name && this.user.password)
       },
       ...mapGetters([
-        'mainData',
+        'courses',
         'error'
       ])
     },
     methods: {
       onLogin () {
-        this.$store.dispatch('loginUser', { user: this.user.name, password: this.user.password, curso: this.cursoSeleccionado })
+        this.$store.dispatch('loginUser', { user: this.user.name, password: this.user.password, course: this.selectedCourse })
       }
     }
   }
